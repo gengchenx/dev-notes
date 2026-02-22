@@ -8,6 +8,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: code
+
     steps:
       - uses: actions/checkout@v4
 
@@ -18,10 +22,8 @@ jobs:
       - name: Install dependencies
         run: |
           if [ -f package-lock.json ]; then
-            echo "Using npm ci"
             npm ci
           else
-            echo "Using npm install"
             npm install
           fi
 
