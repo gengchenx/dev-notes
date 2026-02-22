@@ -14,7 +14,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          cache: 'npm'
 
-      - run: npm ci
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "Using npm ci"
+            npm ci
+          else
+            echo "Using npm install"
+            npm install
+          fi
+
       - run: npm run docs:build
