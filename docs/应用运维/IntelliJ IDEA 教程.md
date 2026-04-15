@@ -3,7 +3,7 @@ title: IntelliJ IDEA 教程
 copyright: CC-BY-4.0
 tags:
   - idea
-createTime: 2025/04/15 10:04:15
+createTime: 2026/04/15 10:04:15
 permalink: /blog/inc8xt0r/
 ---
 
@@ -43,29 +43,33 @@ permalink: /blog/inc8xt0r/
 
 ```java
 **
- * 
- * <p></p>
- * @author gengchen
- * @since $date$ $time$
+        *
+        *<p></p>
+        *@author gengchen
+ *
+@since
+$date$ $time$
  */
 ```
+
 **编辑变量**
 
-| 变量名 | 表达式   |
-| ------ | -------- |
-| date   | `date()` |
-| time   | `time()` |
+| 变量名  | 表达式      |
+|------|----------|
+| date | `date()` |
+| time | `time()` |
 
 **测试输出**：
 
 ```java
 /**
- * 
+ *
  * <p></p>
  * @author gengchen
  * @since 2026/4/15 21:55
  */
 ```
+
 #### 5.1.2.javadoc 方法注释模板
 
 **缩写**：`**`
@@ -78,19 +82,22 @@ permalink: /blog/inc8xt0r/
 
 ```java
 **
+        *
+        *<p></p>$javadoc$
+ *@author gengchen
  *
- * <p></p> $javadoc$
- * @author gengchen
- * @since $date$ $time$
+@since
+$date$ $time$
  */
 ```
+
 **编辑变量**
 
-| 变量名  | 表达式                                                       |      |
-| ------- | ------------------------------------------------------------ | ---- |
-| javadoc | `groovyScript("def r='',ps=_1.toString().replaceAll('[\\\\[|\\\\]|\\\\s]','').split(',').toList(),ts=_2.toString().replaceAll('[\\\\[|\\\\]|\\\\s]','').split(',').toList(),rt=_3.toString();def hasP=!(ps.size()==0||(ps.size()==1&&ps[0]==''));if(hasP){for(i=0;i<ps.size();i++){def t=ts[i].contains('.')?ts[i].substring(ts[i].lastIndexOf('.')+1):ts[i];r+=(i>0?'\\n * ':'')+('@param '+ps[i]+' {@link '+t+'}');}};def ret=rt==''||rt=='null'||rt=='void'?'':'@return {@link '+(rt.contains('.')?rt.substring(rt.lastIndexOf('.')+1):rt)+'}';if(hasP&&ret!='')r+='\\n * '+ret;else if(!hasP)r+=ret;return r==''?null:'\\n * '+r", methodParameters(), methodParameterTypes(), methodReturnType())` |      |
-| date    | `date()`                                                     |      |
-| time    | `time()`                                                     |      |
+| 变量名     | 表达式                                                         |       |
+|---------|-------------------------------------------------------------|-------|
+| javadoc | `groovyScript("def r='',ps=_1.toString().replaceAll('[\\\\[ | \\\\] |\\\\s]','').split(',').toList(),ts=_2.toString().replaceAll('[\\\\[|\\\\]|\\\\s]','').split(',').toList(),rt=_3.toString();def hasP=!(ps.size()==0||(ps.size()==1&&ps[0]==''));if(hasP){for(i=0;i<ps.size();i++){def t=ts[i].contains('.')?ts[i].substring(ts[i].lastIndexOf('.')+1):ts[i];r+=(i>0?'\\n * ':'')+('@param '+ps[i]+' {@link '+t+'}');}};def ret=rt==''||rt=='null'||rt=='void'?'':'@return {@link '+(rt.contains('.')?rt.substring(rt.lastIndexOf('.')+1):rt)+'}';if(hasP&&ret!='')r+='\\n * '+ret;else if(!hasP)r+=ret;return r==''?null:'\\n * '+r", methodParameters(), methodParameterTypes(), methodReturnType())` |      |
+| date    | `date()`                                                    |       |
+| time    | `time()`                                                    |       |
 
 **测试输出**：
 
@@ -103,6 +110,7 @@ permalink: /blog/inc8xt0r/
  * @since 2026/4/15 18:57
  */
 ```
+
 #### 5.1.3.javadoc 方法继承注释模板
 
 **缩写**：`***`
@@ -115,15 +123,16 @@ permalink: /blog/inc8xt0r/
 
 ```java
 **
- * {@inheritDoc}
- */
+        *{@inheritDoc}
+        */
 ```
+
 **编辑变量**
 
-| 变量名 | 表达式   |      |
-| ------ | -------- | ---- |
-| date   | `date()` |      |
-| time   | `time()` |      |
+| 变量名  | 表达式      |      |
+|------|----------|------|
+| date | `date()` |      |
+| time | `time()` |      |
 
 **测试输出**：
 
@@ -137,7 +146,8 @@ permalink: /blog/inc8xt0r/
 
 #### 5.2.1.GitHub Copilot
 
-**插件名**：[GitHub Copilot - Your AI Pair Programmer](https://plugins.jetbrains.com/plugin/17718-github-copilot--your-ai-pair-programmer)
+**插件名
+**：[GitHub Copilot - Your AI Pair Programmer](https://plugins.jetbrains.com/plugin/17718-github-copilot--your-ai-pair-programmer)
 
 **说明**：[GitHub Copilot](https://github.com/features/copilot) AI 驱动型代码助手
 
@@ -173,7 +183,8 @@ permalink: /blog/inc8xt0r/
 
 #### 5.2.7.Chinese (Simplified) Language Pack / 中文语言包
 
-**插件名**：[Chinese (Simplified) Language Pack / 中文语言包](https://plugins.jetbrains.com/plugin/13710-chinese-simplified-language-pack----)
+**插件名
+**：[Chinese (Simplified) Language Pack / 中文语言包](https://plugins.jetbrains.com/plugin/13710-chinese-simplified-language-pack----)
 
 **说明**：
 
@@ -218,9 +229,6 @@ permalink: /blog/inc8xt0r/
 **插件名**：[Private Notes](https://plugins.jetbrains.com/plugin/17874-private-notes)
 
 **说明**：源码中添加注释的插件
-
-
-
 
 ## 6.常用操作
 
