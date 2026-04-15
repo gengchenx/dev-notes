@@ -26,20 +26,17 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: code/package-lock.json  # 👈 指定正确路径
 
       - name: Install dependencies
-        working-directory: code   # 👈 切换到 code 目录
         run: npm ci
 
       - name: Build docs
-        working-directory: code   # 👈 切换到 code 目录
         run: npm run docs:build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: code/docs/.vuepress/dist   # 👈 VuePress 构建产物路径
+          path: pages
 
   deploy:
     environment:
