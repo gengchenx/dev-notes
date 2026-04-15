@@ -1,29 +1,27 @@
-## 代码结构
+# a-geng-s-blog
 
-* code 源代码
-* docs 构建服务
+The Site is generated using [vuepress](https://vuepress.vuejs.org/) and [vuepress-theme-plume](https://github.com/pengzhanbo/vuepress-theme-plume)
 
-## 命令
+## Install
 
-**安装依赖** `pm i`
+```sh
+npm i
+```
 
-**启动开发服务** `npm run docs:dev`
+## Usage
 
-**预览开发服务** `npm run docs:preview`
+```sh
+# start dev server
+npm run docs:dev
+# build for production
+npm run docs:build
+# preview production build in local
+npm run docs:preview
+# update vuepress and theme
+npm run vp-update
+```
 
-**构建生产** `npm run docs:build`
+## Documents
 
-**更新vuepress主题** `npm run vp-update`
-
-## 发布
-
-1. 删除 `docs` 目录
-
-2. 执行 `npm run docs:build`
-3. 添加git `git add docs/`
-4. 提交git
-
-## 发布地址
-
-https://notonull.github.io/dev-notes/
-
+- [vuepress](https://vuepress.vuejs.org/)
+- [vuepress-theme-plume](https://theme-plume.vuejs.press/)
