@@ -108,7 +108,7 @@ permalink: /blog/inc8xt0r/
  * <p></p>
  * @param request {@link SysUserRequest}
  * @param ignoreDisable {@link Boolean}
- * @return {@link SysUser>>}
+ * @return {@link SysUser}
  * @author gengchen
  * @since 2026/4/15 18:57
  */
