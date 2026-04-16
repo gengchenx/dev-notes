@@ -41,12 +41,10 @@ permalink: /blog/inc8xt0r/
 
 ```java
 **
-        *
-        *<p></p>
-        *@author gengchen
  *
-@since
-$date$ $time$
+ *<p></p>
+ *@author gengchen
+ *@since $date$ $time$
  */
 ```
 
@@ -80,27 +78,27 @@ $date$ $time$
 
 ```java
 **
-        *
-        *<p></p>$javadoc$
- *@author gengchen
  *
-@since
-$date$ $time$
+ *<p></p>$javadoc$
+ *@author gengchen
+ *@since $date$ $time$
  */
 ```
 
 **编辑变量**
 
-| 变量名     | 表达式                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |      |
-|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------|
-| javadoc | groovyScript("def r='',ps=_1.toString().replaceAll('[\\\\[\|\\\\]\|\\\\s]','').split(',').toList(),ts=_2.toString().replaceAll('[\\\\[\|\\\\]\|\\\\s]','').split(',').toList(),rt=_3.toString();def hasP=!(ps.size()==0\|\|(ps.size()==1&&ps[0]==''));if(hasP){for(i=0;i<ps.size();i++){def t=ts[i].contains('.')?ts[i].substring(ts[i].lastIndexOf('.')+1):ts[i];r+=(i>0?'\\n * ':'')+('@param '+ps[i]+' {@link '+t+'}');}};def ret=rt==''\|\|rt=='null'\|\|rt=='void'?'':'@return {@link '+(rt.contains('.')?rt.substring(rt.lastIndexOf('.')+1):rt)+'}';if(hasP&&ret!='')r+='\\n * '+ret;else if(!hasP)r+=ret;return r==''?null:'\\n * '+r", methodParameters(), methodParameterTypes(), methodReturnType()) |      |
-| date    | `date()`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |      |
-| time    | `time()`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |      |
+| 变量名     | 表达式    |
+|---------|--------|
+| javadoc | groovyScript(   "def r='',ps=_1.toString().replaceAll('[\\\\[|\\\\]|\\\\s]','').split(',').toList(),ts=_2.toString().replaceAll('[\\\\[|\\\\]|\\\\s]','').split(',').toList(),rt=_3.toString();def hasP=!(ps.size()==0||(ps.size()==1&&(ps[0]==''||ps[0]=='null')));if(hasP){for(i=0;i<ps.size();i++){def t=ts[i].contains('.')?ts[i].substring(ts[i].lastIndexOf('.')+1):ts[i];r+=(i>0?'\\n * ':'')+('@param '+ps[i]+' {@link '+t+'}');}};def ret=rt==''||rt=='null'||rt=='void'?'':'@return {@link '+(rt.contains('.')?rt.substring(rt.lastIndexOf('.')+1):rt)+'}';if(hasP&&ret!='')r+='\\n * '+ret;else if(!hasP)r+=ret;return r==''?null:'\\n * '+r",   methodParameters(), methodParameterTypes(), methodReturnType() )|
+| date    | `date()` |
+| time    | `time()` |
 
 **测试输出**：
 
 ```java
 /**
+ * 
+ * <p></p>
  * @param request {@link SysUserRequest}
  * @param ignoreDisable {@link Boolean}
  * @return {@link SysUser>>}
@@ -121,8 +119,8 @@ $date$ $time$
 
 ```java
 **
-        *{@inheritDoc}
-        */
+ *{@inheritDoc}
+ */
 ```
 
 **编辑变量**
