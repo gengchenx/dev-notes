@@ -89,10 +89,7 @@ permalink: /blog/inc8xt0r/
 
 ```groovy
     //javadoc表达式
-    groovyScript(
-        "def r='',ps=_1.toString().replaceAll('[\\\\[|\\\\]|\\\\s]','').split(',').toList(),ts=_2.toString().replaceAll('[\\\\[|\\\\]|\\\\s]','').split(',').toList(),rt=_3.toString();def simplify={t->t.replaceAll('[a-z][a-z0-9_]*(\\\\.[a-z][a-z0-9_]*)*\\\\.','')};def hasP=!(ps.size()==0||(ps.size()==1&&(ps[0]==''||ps[0]=='null')));if(hasP){for(i=0;i<ps.size();i++){def t=simplify(ts[i]);r+=(i>0?'\\n * ':'')+('@param '+ps[i]+' {@link '+t+'}');}};def ret=rt==''||rt=='null'||rt=='void'?'':'@return {@link '+simplify(rt)+'}';if(hasP&&ret!='')r+='\\n * '+ret;else if(!hasP)r+=ret;return r==''?null:'\\n * '+r",
-        methodParameters(), methodParameterTypes(), methodReturnType()
-    )
+    groovyScript("def r='',rt=_3.toString();def ps=_1.toString().replaceAll('[\\\\[|\\\\]|\\\\s]','').split(',').toList();def splitG={s->def res=[],cur='',depth=0;s.each{c->if(c=='<'){depth++;cur+=c}else if(c=='>'){depth--;cur+=c}else if(c==','&&depth==0){res+=cur.trim();cur=''}else if(c!='['&&c!=']'&&c!=' '){cur+=c}};if(cur.trim())res+=cur.trim();res};def ts=splitG(_2.toString());def simplify={t->t.replaceAll('[a-z][a-z0-9_]*(\\\\.[a-z][a-z0-9_]*)*\\\\.','')};def primitives=['int','long','double','float','boolean','char','byte','short','void'];def isBasic={raw->def base=raw.contains('<')?raw.substring(0,raw.indexOf('<')).trim():raw.trim();primitives.contains(base)||base.startsWith('java.lang.')||base.startsWith('java.util.')};def wrapType={raw->if(isBasic(raw))return '';def simple=simplify(raw);def base=simple.contains('<')?simple.substring(0,simple.indexOf('<')).trim():simple;'{@link '+base+'}'};def hasP=!(ps.size()==0||(ps.size()==1&&(ps[0]==''||ps[0]=='null')));if(hasP){for(i=0;i<ps.size();i++){def w=wrapType(ts[i]);r+=(i>0?'\\n * ':'')+('@param '+ps[i]+(w?' '+w:''));}};def rawRt=rt==''||rt=='null'||rt=='void'?null:rt;def ret=rawRt?('@return '+(wrapType(rawRt)?wrapType(rawRt):'')):'' ;if(hasP&&ret!='')r+='\\n * '+ret;else if(!hasP)r+=ret;return r==''?null:'\\n * '+r", methodParameters(), methodParameterTypes(), methodReturnType())
 ```
 | 变量名     | 表达式    |
 |---------|--------|
